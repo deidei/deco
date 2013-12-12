@@ -1,5 +1,9 @@
 require "sinatra"
 
-get "/" do
-    "deco init"
+class DecoApp < Sinatra::Application
+
+    get "/" do
+        "deco init"
+    end
+
 end
