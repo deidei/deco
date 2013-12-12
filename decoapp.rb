@@ -1,7 +1,7 @@
 require "sinatra"
 require "sinatra/activerecord"
 
-set :database, "sqlite3:///deco.db"
+set :database, "sqlite3:///db/deco.sqlite3"
 
 class Post < ActiveRecord::Base
 end
