@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131213042156) do
+ActiveRecord::Schema.define(version: 20131213074940) do
+
+  create_table "daily_reports", force: true do |t|
+    t.integer  "user_id"
+    t.date     "date"
+    t.text     "commitment"
+    t.text     "plan"
+    t.text     "problem"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
