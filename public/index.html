@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>Deco</title>
   <link rel="stylesheet" type="text/css" href="css/common.css"/>
   <link rel="stylesheet" type="text/css" href="css/index.css"/>
+  <script src="/js/lib/angular.js"></script>
+  <script src="/js/index.js"></script>
 </head>
 
 <body>
-  <input type="text" id="login-name" name="login-name"
-    placeholder="Login name here."/>
-  <br>
-  <input type="password" id="login-password" 
-  name="login-password" placeholder="Enter to submit"/>
-  <script type="text/javascript" charset="utf-8">
-  </script>
+  <div id="login-div" ng-controller="loginCtrl">
+    <input type="text" id="loginName" placeholder="Login name here."/>
+    <br>
+    <input type="password" id="loginPassword" placeholder="Enter to submit"/>
+    <br>
+    <a id="loginHint">{{loginHint}}</a>
+  </div>
 </body>
 </html>
