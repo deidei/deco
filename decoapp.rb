@@ -6,19 +6,25 @@ require "./models/daily_report"
 
 class DecoApp < Sinatra::Application
 
+    enable :sessions
+    set :session_secret, '*&(^B234'
+
     def login_required!
         if session[:user].nil?
             halt 401, "Not authorized\n"
         end
     end
 
+    before do
+        body = request.body.read
+        @json = JSON.parse(body) unless body.empty?
+    end
+
     post "/login" do
-        user = User.find(:first, :conditions => {:name => params[:username]})
-        p user.password
-        p params[:password]
+        user = User.find_by(name: @json["username"])
         if user.nil?
             status 410
-        elsif user.password == params[:password]
+        elsif user.password == @json["password"]
             session[:user] = user.id
             status 200
         else
@@ -33,9 +39,8 @@ class DecoApp < Sinatra::Application
 
     post "/users" do
         user = User.new
-        user.name = params[:username]
-        p params
-        user.password = params[:password]
+        user.name = @json[:username]
+        user.password = @json[:password]
         user.save!
     end
 

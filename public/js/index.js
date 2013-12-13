@@ -6,12 +6,11 @@ function loginCtrl($scope, $http) {
 
 
     $scope.tryLogin = function(ev) {
-        
         if (ev.which != 13) {
             return;
         }
 
-        var data = {'user': $scope.loginName,
+        var data = {'username': $scope.loginName,
                     'password': $scope.loginPassword};
 
         console.log(data);
