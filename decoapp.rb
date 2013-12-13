@@ -5,12 +5,18 @@ require "./model/user"
 
 class DecoApp < Sinatra::Application
 
+    def login_required!
+        if session[:user].nil?
+            halt 401, "Not authorized\n"
+        end
+    end
+
     post "/login" do
         user = User.find(:first, :conditions => {:name => params[:username]})
         p user.password
         p params[:password]
         if user.nil?
-            status 401
+            status 410
         elsif user.password == params[:password]
             session[:user] = user.id
             status 200
@@ -20,6 +26,7 @@ class DecoApp < Sinatra::Application
     end
 
     get "/" do
+        login_required!
         "Hello"
     end
 
@@ -32,6 +39,7 @@ class DecoApp < Sinatra::Application
     end
 
     get "/users" do
+        login_required!
         User.all.to_json
     end
 
