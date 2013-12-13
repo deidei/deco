@@ -1,7 +1,8 @@
 require "sinatra"
 require "sinatra/activerecord"
 require "./config/environments"
-require "./model/user"
+require "./models/user"
+require "./models/daily_report"
 
 class DecoApp < Sinatra::Application
 
@@ -41,6 +42,10 @@ class DecoApp < Sinatra::Application
     get "/users" do
         login_required!
         User.all.to_json
+    end
+
+    get "/daily_reports" do
+        DailyReport.all.to_json
     end
 
 end

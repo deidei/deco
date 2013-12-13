@@ -1,5 +1,5 @@
 class CreateDailyReports < ActiveRecord::Migration
-  def up
+  def change
     create_table :daily_reports do |t|
       t.belongs_to :user
       t.date :date
@@ -8,8 +8,5 @@ class CreateDailyReports < ActiveRecord::Migration
       t.text :problem
       t.timestamps
     end
-  end
-
-  def down
   end
 end
