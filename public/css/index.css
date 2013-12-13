@@ -1,0 +1,23 @@
+input {
+  border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+}
+#login-name {
+  position: fixed;
+  width: 20em;
+  height: 2em;
+  left: 50%;
+  margin-left: -10em;
+  top: 50%;
+  margin-top: -3em;
+}
+#login-password {
+  position: fixed;
+  width: 20em;
+  height: 2em;
+  left: 50%;
+  margin-left: -10em;
+  top: 50%;
+  margin-top: 1em;
+}
