@@ -1,13 +1,12 @@
 function loginCtrl($scope, $http) {
 
-    $scope.loginHint = 'hello';
+    $scope.loginHint = '';
     $scope.loginName = '';
     $scope.loginPassword = '';
 
 
     $scope.tryLogin = function(ev) {
         
-        console.log(ev);
         if (ev.which != 13) {
             return;
         }
