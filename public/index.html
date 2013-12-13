@@ -11,10 +11,14 @@
 
 <body>
   <div id="login-div" ng-controller="loginCtrl">
-    <input type="text" id="loginName" placeholder="Login name here."/>
+    <input type="text" id="loginName" ng-model="loginName"
+    placeholder="Login name here."/>
     <br>
-    <input type="password" id="loginPassword" placeholder="Enter to submit"/>
+    <input type="password" id="loginPassword" ng-model="loginPassword"
+    ng-keypress="tryLogin($event)"
+    placeholder="Enter to submit"/>
     <br>
+    <button type="submit">
     <a id="loginHint">{{loginHint}}</a>
   </div>
 </body>
