@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131213074940) do
+ActiveRecord::Schema.define(version: 20131215161924) do
 
   create_table "daily_reports", force: true do |t|
     t.integer  "user_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20131213074940) do
     t.text     "problem"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
   end
 
   create_table "users", force: true do |t|
