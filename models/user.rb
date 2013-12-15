@@ -3,9 +3,11 @@ require "bcrypt"
 class User < ActiveRecord::Base
     include BCrypt
 
-    has_many :daily_reports
+    self.primary_key = :user_id
 
-    validates_uniqueness_of :name
+    #has_many :daily_reports
+
+    #validates_uniqueness_of :name
 
     def password
         @password ||= Password.new(encrypted_password)
